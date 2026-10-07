@@ -1674,3 +1674,21 @@ dialog:not([open]) {
   padding: 10px 12px;
   color: var(--texto-suave);
 }
+
+/* Busca logo acima da lista e presa no alto da tela ao rolar */
+.barra-busca {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  margin: 0 -16px 12px;
+  padding: calc(env(safe-area-inset-top, 0px) + 8px) 16px 8px;
+  background: var(--fundo);
+  border-bottom: 2px solid var(--borda);
+}
+.barra-busca .rotulo { margin-bottom: 4px; }
+.barra-busca .info-filtro { margin: 6px 0 0; font-size: 0.95rem; }
+.barra-busca input[type="search"] { border-color: var(--vinho); border-width: 3px; }
+@media (max-width: 380px) {
+  .barra-busca { margin-left: -12px; margin-right: -12px; padding-left: 12px; padding-right: 12px; }
+}

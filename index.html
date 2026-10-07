@@ -104,14 +104,7 @@
       </div>
 
       <section class="cartao busca" id="busca" aria-labelledby="titulo-busca">
-        <h2 id="titulo-busca" class="so-leitor">Encontrar na lista</h2>
-        <label for="campo-busca" class="rotulo">🔎 Buscar pelo nome</label>
-        <div class="campo-com-botao">
-          <input id="campo-busca" type="search" autocomplete="off" autocapitalize="none" autocorrect="off"
-                 spellcheck="false" enterkeyhint="search" placeholder="Digite parte do nome (acento não importa)">
-          <button type="button" id="botao-limpar-busca" class="botao botao-secundario" hidden>Limpar</button>
-        </div>
-
+        <h2 id="titulo-busca" class="titulo-secao">Filtrar a lista</h2>
         <fieldset class="filtros">
           <legend class="rotulo">Mostrar quem está</legend>
           <div class="filtros-situacao" id="filtros-situacao">
@@ -127,13 +120,21 @@
                spellcheck="false" placeholder="Digite ou toque para escolher">
         <select id="filtro-grupo" hidden tabindex="-1" aria-hidden="true"></select>
 
-        <p id="info-filtro" class="info-filtro" role="status"></p>
         <button type="button" id="botao-limpar-filtros" class="botao botao-secundario botao-largo" hidden>Mostrar todos de novo</button>
       </section>
 
       <section aria-labelledby="titulo-lista">
-        <h2 id="titulo-lista" class="titulo-secao titulo-lista">Convidados por grupo</h2>
-        <p class="legenda-lista">Toque em ✅ Confirmado, ⏳ Aguardando ou ❌ Não vai ao lado de cada pessoa. O botão preenchido é a situação atual. Para corrigir o nome, toque no nome.</p>
+        <h2 id="titulo-lista" class="titulo-secao titulo-lista">Convidados</h2>
+        <p class="legenda-lista">Toque em ✅, ⏳ ou ❌ ao lado da pessoa. O botão preenchido é a situação atual. Para corrigir o nome, toque no nome.</p>
+        <div class="barra-busca" id="barra-busca">
+          <label for="campo-busca" class="rotulo">🔎 Buscar pelo nome</label>
+          <div class="campo-com-botao">
+            <input id="campo-busca" type="search" autocomplete="off" autocapitalize="none" autocorrect="off"
+                   spellcheck="false" enterkeyhint="search" placeholder="Digite parte do nome">
+            <button type="button" id="botao-limpar-busca" class="botao botao-secundario" hidden>Limpar</button>
+          </div>
+          <p id="info-filtro" class="info-filtro" role="status"></p>
+        </div>
         <div id="lista" class="lista"></div>
       </section>
 

@@ -705,7 +705,7 @@
     h += '<h3 class="grupo-nome" id="titulo-grupo-' + id + '">' + nome + '</h3>';
     h += '<p class="grupo-resumo">' + escaparHtml(resumo) + '</p></div>';
     h += '</div>';
-    if (grupo) {
+    if (grupo && !filtrandoPessoas()) {
       h += '<div class="grupo-acoes">' +
         '<button type="button" class="botao botao-secundario botao-grupo" data-acao="adicionar-no-grupo" data-id="' + id +
         '" data-chave="gadd:' + id + '" aria-label="Adicionar pessoa no ' + nome + '">➕ Adicionar</button>' +
@@ -714,9 +714,6 @@
         '<button type="button" class="botao botao-perigo botao-grupo" data-acao="excluir-grupo" data-id="' + id +
         '" data-chave="gdel:' + id + '" aria-label="Excluir ' + nome + '">🗑️ Excluir</button>' +
         '</div>';
-    }
-    if (filtrandoPessoas() && visiveis.length < todas.length) {
-      h += '<p class="grupo-filtrado">Mostrando ' + visiveis.length + ' de ' + todas.length + ' (filtro ligado).</p>';
     }
     if (grupo && faltam && !filtrandoPessoas()) {
       h += '<button type="button" class="botao botao-secundario botao-confirmar-grupo" data-acao="confirmar-grupo" data-id="' + id +
@@ -1808,6 +1805,13 @@
     $('campo-busca').addEventListener('input', function (e) {
       filtros.busca = e.target.value;
       desenhar();
+    });
+    // Ao tocar na busca, sobe a página para a busca ficar no alto e os resultados logo abaixo.
+    $('campo-busca').addEventListener('focus', function () {
+      setTimeout(function () {
+        const y = $('barra-busca').getBoundingClientRect().top + window.pageYOffset - 4;
+        if (Math.abs(window.pageYOffset - y) > 20) window.scrollTo(0, y);
+      }, 250);
     });
     $('campo-busca').addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
