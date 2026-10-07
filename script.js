@@ -1817,6 +1817,12 @@
       if (e.key === 'Enter') {
         e.preventDefault();
         e.target.blur(); // fecha o teclado do celular
+        // Desce até a lista, com o primeiro resultado logo abaixo da busca (que fica presa no alto).
+        setTimeout(function () {
+          const altura = $('barra-busca').getBoundingClientRect().height;
+          const y = $('lista').getBoundingClientRect().top + window.pageYOffset - altura - 8;
+          window.scrollTo(0, Math.max(0, y));
+        }, 150);
       }
     });
     $('botao-limpar-busca').addEventListener('click', function () {

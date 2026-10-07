@@ -1773,3 +1773,6 @@ dialog:not([open]) {
 .filtro-n { font-weight: 800; }
 .filtros-compactos .filtro[aria-pressed="true"]::before { content: ""; }
 .filtros-compactos #botao-limpar-filtros { margin-top: 6px; min-height: 44px; }
+
+/* Espaço mínimo para a página conseguir descer até os resultados, mesmo com poucos nomes */
+.lista { min-height: 85vh; }
