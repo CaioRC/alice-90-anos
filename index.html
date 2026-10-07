@@ -73,59 +73,21 @@
         <h2 id="dica-inicial-titulo">Olá! Veja como usar</h2>
         <ul>
           <li>Para marcar quem respondeu, <strong>busque o nome</strong>, <strong>toque na pessoa</strong> e escolha ✅ Confirmado ou ❌ Não vai.</li>
-          <li>Tudo é <strong>salvo sozinho</strong> neste aparelho. De vez em quando, toque em <strong>💾 Cópia de segurança</strong>.</li>
+          <li>Tudo é <strong>salvo sozinho</strong> neste aparelho. De vez em quando, faça uma <strong>💾 Cópia de segurança</strong> (no fim da página).</li>
         </ul>
         <button type="button" id="botao-fechar-dica" class="botao botao-secundario">Entendi</button>
       </section>
 
-      <section class="cartao resumo" aria-labelledby="titulo-resumo">
+      <section class="resumo-faixa" aria-labelledby="titulo-resumo">
         <h2 id="titulo-resumo" class="so-leitor">Resumo</h2>
-        <div class="resumo-destaque">
-          <span id="n-confirmados" class="resumo-destaque-numero">0</span>
-          <span class="resumo-destaque-texto">
-            <strong id="texto-confirmados">✅ pessoas confirmadas</strong><br>
-            É a quantidade atual para o buffet.
-          </span>
-        </div>
-        <dl class="resumo-numeros">
-          <div class="resumo-item item-total"><dt>👥 Convidados</dt><dd id="n-total">0</dd></div>
-          <div class="resumo-item item-aguardando"><dt>⏳ Aguardando resposta</dt><dd id="n-aguardando">0</dd></div>
-          <div class="resumo-item item-nao-vai"><dt>❌ Não vão</dt><dd id="n-nao-vao">0</dd></div>
-        </dl>
-        <p id="resumo-extra" class="dica" hidden></p>
-        <p id="ultima-alteracao" class="dica"></p>
-      </section>
-
-      <div class="acoes-principais" role="group" aria-label="Ações principais">
-        <button type="button" id="botao-adicionar" class="botao botao-principal">➕ Adicionar pessoa</button>
-        <button type="button" id="botao-criar-grupo" class="botao botao-secundario">👥 Criar grupo</button>
-        <button type="button" id="botao-compartilhar" class="botao botao-secundario">📲 Compartilhar lista</button>
-        <button type="button" class="botao botao-secundario" data-abrir-copia>💾 Cópia de segurança</button>
-      </div>
-
-      <section class="cartao busca" id="busca" aria-labelledby="titulo-busca">
-        <h2 id="titulo-busca" class="titulo-secao">Filtrar a lista</h2>
-        <fieldset class="filtros">
-          <legend class="rotulo">Mostrar quem está</legend>
-          <div class="filtros-situacao" id="filtros-situacao">
-            <button type="button" class="filtro" data-filtro="todos" aria-pressed="true">Todos <span class="filtro-n"></span></button>
-            <button type="button" class="filtro" data-filtro="confirmado" aria-pressed="false">✅ Confirmados <span class="filtro-n"></span></button>
-            <button type="button" class="filtro" data-filtro="aguardando" aria-pressed="false">⏳ Aguardando <span class="filtro-n"></span></button>
-            <button type="button" class="filtro" data-filtro="nao_vai" aria-pressed="false">❌ Não vão <span class="filtro-n"></span></button>
-          </div>
-        </fieldset>
-
-        <label for="busca-filtro-grupo" class="rotulo">Grupo</label>
-        <input id="busca-filtro-grupo" class="busca-grupo" type="text" autocomplete="off" autocapitalize="none"
-               spellcheck="false" placeholder="Digite ou toque para escolher">
-        <select id="filtro-grupo" hidden tabindex="-1" aria-hidden="true"></select>
-
-        <button type="button" id="botao-limpar-filtros" class="botao botao-secundario botao-largo" hidden>Mostrar todos de novo</button>
+        <p class="resumo-linha1"><strong id="n-confirmados">0</strong> <span id="texto-confirmados">✅ pessoas confirmadas</span> <span class="resumo-buffet">(quantidade para o buffet)</span></p>
+        <p class="resumo-linha2">👥 <strong id="n-total">0</strong> convidados · ⏳ <strong id="n-aguardando">0</strong> aguardando resposta · ❌ <strong id="n-nao-vao">0</strong> não vão</p>
+        <p id="resumo-extra" class="resumo-linha3" hidden></p>
+        <p id="ultima-alteracao" class="resumo-linha3"></p>
       </section>
 
       <section aria-labelledby="titulo-lista">
-        <h2 id="titulo-lista" class="titulo-secao titulo-lista">Convidados</h2>
-        <p class="legenda-lista">Toque em ✅, ⏳ ou ❌ ao lado da pessoa. O botão preenchido é a situação atual. Para corrigir o nome, toque no nome.</p>
+        <h2 id="titulo-lista" class="so-leitor">Convidados</h2>
         <div class="barra-busca" id="barra-busca">
           <label for="campo-busca" class="rotulo">🔎 Buscar pelo nome</label>
           <div class="campo-com-botao">
@@ -135,18 +97,47 @@
           </div>
           <p id="info-filtro" class="info-filtro" role="status"></p>
         </div>
+      <div class="filtros-compactos" id="busca" aria-labelledby="titulo-busca">
+        <h2 id="titulo-busca" class="so-leitor">Filtrar a lista</h2>
+        <fieldset class="filtros">
+          <legend class="so-leitor">Mostrar quem está</legend>
+          <div class="filtros-situacao" id="filtros-situacao">
+            <button type="button" class="filtro" data-filtro="todos" aria-pressed="true" aria-label="Mostrar todos">Todos <span class="filtro-n"></span></button>
+            <button type="button" class="filtro" data-filtro="confirmado" aria-pressed="false" aria-label="Mostrar só confirmados">✅ <span class="filtro-n"></span></button>
+            <button type="button" class="filtro" data-filtro="aguardando" aria-pressed="false" aria-label="Mostrar só quem está aguardando">⏳ <span class="filtro-n"></span></button>
+            <button type="button" class="filtro" data-filtro="nao_vai" aria-pressed="false" aria-label="Mostrar só quem não vai">❌ <span class="filtro-n"></span></button>
+          </div>
+        </fieldset>
+
+        <label for="busca-filtro-grupo" class="rotulo rotulo-pequeno">Grupo</label>
+        <input id="busca-filtro-grupo" class="busca-grupo" type="text" autocomplete="off" autocapitalize="none"
+               spellcheck="false" placeholder="Digite ou toque para escolher">
+        <select id="filtro-grupo" hidden tabindex="-1" aria-hidden="true"></select>
+
+        <button type="button" id="botao-limpar-filtros" class="botao botao-secundario botao-largo" hidden>Mostrar todos de novo</button>
+      </div>
+        <p class="legenda-lista">Toque em ✅, ⏳ ou ❌ ao lado da pessoa. O botão preenchido é a situação atual. Para corrigir o nome, toque no nome.</p>
         <div id="lista" class="lista"></div>
       </section>
 
 
     </main>
 
+    <div class="acoes-fim" role="group" aria-label="Outras ações">
+      <button type="button" id="botao-criar-grupo" class="botao botao-secundario">👥 Criar grupo</button>
+      <button type="button" class="botao botao-secundario" data-abrir-copia>💾 Cópia de segurança</button>
+    </div>
+
     <footer class="rodape">
       <p>Feito com carinho para os 90 anos de Dona Alice Costa 🎉</p>
       <button type="button" class="botao botao-secundario" data-sair>Sair</button>
     </footer>
 
-    <button type="button" id="botao-topo" class="botao-topo" aria-label="Voltar ao topo da página" hidden>↑ Topo</button>
+    <div class="barra-fixa" role="group" aria-label="Ações rápidas">
+      <button type="button" id="botao-adicionar" class="botao botao-principal">➕ Adicionar</button>
+      <button type="button" id="botao-compartilhar" class="botao botao-zap">📲 WhatsApp</button>
+      <button type="button" id="botao-topo" class="botao botao-secundario botao-topo" aria-label="Voltar ao topo da página" hidden>↑ Topo</button>
+    </div>
   </div>
 
   <!-- Mensagens rápidas (ex.: “Alteração salva”) -->

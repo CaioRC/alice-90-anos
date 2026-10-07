@@ -624,7 +624,7 @@
     document.querySelectorAll('#filtros-situacao [data-filtro]').forEach(function (botao) {
       const f = botao.getAttribute('data-filtro');
       botao.setAttribute('aria-pressed', String(filtros.situacao === f));
-      botao.querySelector('.filtro-n').textContent = '(' + (f === 'todos' ? c.total : c[f]) + ')';
+      botao.querySelector('.filtro-n').textContent = String(f === 'todos' ? c.total : c[f]);
     });
 
     const semGrupo = pessoasDoGrupo(null).length;
@@ -1792,7 +1792,7 @@
     $('botao-fechar-dica').addEventListener('click', function () {
       gravarLocal(CHAVE_DICA, 'sim');
       $('dica-inicial').hidden = true;
-      avisar('Certo! Se precisar, a “Ajuda rápida” fica no fim da página.');
+      avisar('Certo! Se precisar, toque em “Ajuda”, no alto da página.');
     });
     $('botao-adicionar').addEventListener('click', function () {
       abrirFormPessoa({ modo: 'novo', grupoId: filtros.grupo && filtros.grupo !== SEM_GRUPO ? filtros.grupo : null });
